@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build">
+
+<!-- APPLICATION METADATA -->
+<property name="mdpc.name"    value="mdvl-ssd-optimization"/>
+<property name="mdpc.section" value="admin"/>
+<property name="mdpc.arch"    value="all"/>
+<property name="mdpc.descrs"  value="MDVL SSD Optimization (useful for all SSD-enhanced computers)"/>
+<property name="mdpc.depends" value="cron"/>
+<property name="mdpc.cpyear"  value="2016"/>
+<property name="mdpc.descrl">
+ Supplies `cron.weekly` job to perform `fstrim`.
+ Refer to https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=767194 for details.
+</property>
+
+<property name="mdpc.file.install">
+fstrim /etc/cron.weekly
+</property>
+
+<target name="build"><chmod file="fstrim" perm="755"/></target>
+
+<!-- CI INTEGRATION -->
+<target name="package_triggered" depends="package">
+	<property name="masysma.ci.trigger" value="newver"/>
+</target>
+
+<!-- CONSTANT TPL IMPORT -->
+<property environment="env"/>
+<condition property="masysma.internal.includepath.rel" value="${env.MDVL_CI_PHOENIX_ROOT}" else=".."><isset property="env.MDVL_CI_PHOENIX_ROOT"/></condition>
+<property name="masysma.internal.includepath" location="${masysma.internal.includepath.rel}"/>
+<property name="masysma.internal.loadpath" value="${masysma.internal.includepath}/co-build/ant-build-template.xml"/>
+<condition property="masysma.internal.load" value="file://${masysma.internal.loadpath}" else="https://raw.githubusercontent.com/m7a/co-build/master/ant-build-template.xml"><resourceexists><file file="${masysma.internal.loadpath}"/></resourceexists></condition>
+<import><url url="${masysma.internal.load}"/></import>
+
+</project>
