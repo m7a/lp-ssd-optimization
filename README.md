@@ -7,7 +7,7 @@ keywords: ["mdvl", "ssd", "cron"]
 date: 2020/02/17 13:23:43
 lang: en-US
 x-masysma-repository: https://www.github.com/m7a/lp-ssd-optimization
-x-masysma-website: https://masysma.lima-city.de/32/mdvl-ssd-optimization.xhtml
+x-masysma-website: https://masysma.lima-city.de/32/ssd-optimization.xhtml
 x-masysma-owned: 1
 x-masysma-copyright: |
   Copyright (c) 2020 Ma_Sys.ma.
