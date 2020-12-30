@@ -1,3 +1,9 @@
+mdvl-ssd-optimization (1.1.0) stable; urgency=medium
+
+  * Bump version to replace old MDPC 1.0 variant.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Thu, 31 Dec 2020 00:19:18 +0100
+
 mdvl-ssd-optimization (1.0.0) stable; urgency=medium
 
   * Package created with MDPC 2
